@@ -4,6 +4,7 @@ import { Route } from 'wouter';
 import Home from './pages/Home';
 import SearchResults from './pages/SearchResults';
 import Detail from './pages/Detail';
+import Context from './context/StaticContext';
 
 function App() {
   return (
