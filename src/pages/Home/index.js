@@ -1,8 +1,8 @@
 import React, { useState} from 'react';
 import { Link, useLocation } from 'wouter';
-import ListOfGifs from '../../components/ListOfGifs';
-import TrendingSearches from '../../components/TrendingSearches';
-import { useGifs } from '../../hooks/useGifs';
+import TrendingSearches from 'components/TrendingSearches';
+import { useGifs } from 'hooks/useGifs';
+import ListOfGifs from 'components/ListOfGifs';
 
 const POPULAR_GIFS = ["Doge", "Pokemon", "Black Clover", "Haikyuu"];
 
@@ -28,6 +28,10 @@ export default function Home(){
         <form onSubmit={handleSubmit}>
             <input placeholder="Search a gif here..." onChange={handleChange} type='text' value={keyword}/>
         </form>
+        <div>
+            <h3>Ultima Busqueda</h3>
+            <ListOfGifs gifs={gifs}/>
+        </div>
         <div>
             Tendecias
             <TrendingSearches />

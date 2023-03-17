@@ -1,6 +1,6 @@
 import React from 'react';
-import ListOfGifs from '../../components/ListOfGifs';
-import { useGifs } from '../../hooks/useGifs';
+import ListOfGifs from 'components/ListOfGifs';
+import { useGifs } from 'hooks/useGifs';
 
 export default function SearchResults({params}){
     const {keyword} = params;
@@ -8,7 +8,7 @@ export default function SearchResults({params}){
 
     return <>
         {loading
-        ? "Loading...": <ListOfGifs gifs={gifs}/>
+        ? "Loading...": <><h3>{decodeURI(keyword)}</h3><ListOfGifs gifs={gifs}/></>
         }
     </>
 };
