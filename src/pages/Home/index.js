@@ -1,11 +1,8 @@
 import React, { useState} from 'react';
-import { Link, useLocation } from 'wouter';
+import { useLocation } from 'wouter';
 import TrendingSearches from 'components/TrendingSearches';
 import { useGifs } from 'hooks/useGifs';
 import ListOfGifs from 'components/ListOfGifs';
-
-const POPULAR_GIFS = ["Doge", "Pokemon", "Black Clover", "Haikyuu"];
-
 
 export default function Home(){
     const [keyword, setKeyword] = useState('');

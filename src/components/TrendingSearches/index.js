@@ -1,41 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import ListOfGifs from '../ListOfGifs';
-import getTrendingTermsService from '../../services/getTrendingTermsService';
-import Category from 'components/Category';
+import React, {Suspense} from 'react';
+import useNearScreen from 'hooks/useNearScreen';
 
-
-function TrendingSearches(){
-    const [trends, setTrends] = useState([]);
-    console.log(trends);
-
-    useEffect(function(){
-        getTrendingTermsService()
-            .then(setTrends)
-    }, []);
-
-    return <Category options={trends}/>
-}
+const TrendingSearches = React.lazy(
+    () => import('./TrendingSearches')
+)
 
 export default function LazyTrending(){
-    const [show, setShow] = useState(false);
-
-    useEffect(function (){
-        const onChange = (entries) => {
-            const el = entries[0];
-            if(el.isIntersecting){
-                setShow(true);
-            }
-        }
-        const observer = new IntersectionObserver(onChange,{
-            rootMargin: '100px'
-        });
-
-        observer.observe(document.getElementById('LazyTrending'));
-    })
-
+    const {isNearScreen, fromRef} = useNearScreen({distance:'200px'});
     return (
-        <div id='LazyTrending'>
-            {show ? <TrendingSearches/> : null}
+        <div ref={fromRef}>
+            <Suspense fallback={'loading...'}>
+                {isNearScreen ? <TrendingSearches/> : 'loading...'}
+            </Suspense>
         </div>
     )
 }
