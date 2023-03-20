@@ -1,0 +1,19 @@
+ul.trending-list {
+    list-style: none;
+}
+
+ul.trending-list li {
+    display: inline-block;
+    padding: 0 0.5rem;
+    min-width: 12 rem;
+    text-align: center;
+}
+
+ul.trending-list a {
+    color: white;
+    text-decoration: none;
+}
+
+ul.trending-list a:hover {
+    color: #F0EAC7;
+}

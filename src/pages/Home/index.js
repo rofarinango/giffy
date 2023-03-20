@@ -3,6 +3,7 @@ import { useLocation } from 'wouter';
 import TrendingSearches from 'components/TrendingSearches';
 import { useGifs } from 'hooks/useGifs';
 import ListOfGifs from 'components/ListOfGifs';
+import './SearchBar.css';
 
 export default function Home(){
     const [keyword, setKeyword] = useState('');
@@ -22,15 +23,27 @@ export default function Home(){
     }
     return (
         <>
-        <form onSubmit={handleSubmit}>
-            <input placeholder="Search a gif here..." onChange={handleChange} type='text' value={keyword}/>
+        <form 
+            onSubmit={handleSubmit}
+            className="search-form"
+            >
+            <input 
+                onChange={handleChange} 
+                type='text' 
+                value={keyword}
+                required/>
+                <button
+                    type='submit'
+                    >
+                    <span>Search</span>
+                </button>
         </form>
         <div>
-            <h3>Ultima Busqueda</h3>
+            <h3>Last Search</h3>
             <ListOfGifs gifs={gifs}/>
         </div>
         <div>
-            Tendecias
+            Trending
             <TrendingSearches />
         </div>
         </>

@@ -1,9 +1,5 @@
 import React from "react";
 
-const Context = React.createContext({
-    name: 'midudev',
-    suscribeteAlCanal: true
-
-})
+const Context = React.createContext();
 
 export default Context;

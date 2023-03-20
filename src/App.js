@@ -9,16 +9,11 @@ import { GifsContextProvider } from './context/GifsContext';
 
 function App() {
   return (
-    <StaticContext.Provider value={
-      {
-      name: 'midudev',
-      suscribeteAlCanal: true
-      }
-    }>
+    <StaticContext.Provider>
     <div className="App">
       <section 
       className="App-content">
-        <h1>App</h1>
+        <h1>Giffy</h1>
         <GifsContextProvider>
             <Route 
               component={Home}
