@@ -28,7 +28,7 @@ export default function useNearScreen({distance='100px', externalRef, once = tru
                 rootMargin: distance
             });
 
-            observer.observe(element);
+            if(element) observer.observe(element);
         })
 
         return () => observer && observer.disconnect();
